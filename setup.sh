@@ -20,10 +20,10 @@ function setupOhMyPosh() {
 }
 
 # https://github.com/microsoft/cascadia-code/releases/latest
-function downloadCascadiaCode() {
+function downloadNerdFont() {
   mkdir -p "$HOME/Downloads"
 
-  curl -fsSL https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip -o "$HOME/Downloads/CascadiaCode.zip"
+  curl -fsSL 'https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf' -o "$HOME/Downloads/HackRegularNerdFontCompleteMono.ttf"
 }
 
 # stow needs to be on the latest version (e.g. with support for --dotfiles
