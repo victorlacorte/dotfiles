@@ -28,6 +28,22 @@ fi
 
 # https://gist.github.com/mcattarinussi/834fc4b641ff4572018d0c665e5a94d3
 unset SSH_AGENT_PID
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-export GPG_TTY=$(tty)
+SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# Docker related settings for Debian WSL2
+# https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9
+DOCKER_DISTRO=Debian
+DOCKER_DIR=/mnt/wsl/shared-docker
+DOCKER_SOCK="$DOCKER_DIR/docker.sock"
+DOCKER_HOST="unix://$DOCKER_SOCK"
+if [ ! -S "$DOCKER_SOCK" ]; then
+  mkdir -pm o=,ug=rwx "$DOCKER_DIR"
+  chgrp docker "$DOCKER_DIR"
+  /mnt/c/Windows/System32/wsl.exe -d $DOCKER_DISTRO sh -c "nohup sudo -b dockerd < /dev/null > $DOCKER_DIR/dockerd.log 2>&1"
+fi
+
+VOLTA_HOME="$HOME/.volta"
+PATH="$VOLTA_HOME/bin:$PATH"
+

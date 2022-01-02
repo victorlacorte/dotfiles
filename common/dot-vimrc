@@ -1,0 +1,54 @@
+set nocompatible
+filetype off
+
+" Set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'preservim/nerdtree'
+Plugin 'tomasiser/vim-code-dark'
+
+" Language related
+" Plugin 'pangloss/vim-javascript' "  JS
+" Plugin 'maxmellon/vim-jsx-pretty' " JSX
+Plugin 'sheerun/vim-polyglot'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
+
+" NERDTree configuration
+let NERDTreeShowHidden=1
+
+set number
+autocmd InsertEnter * :set relativenumber
+autocmd InsertLeave * :set norelativenumber
+
+" Disable the audio bell
+" https://stackoverflow.com/a/44124913
+set visualbell
+set t_vb=
+
+syntax on
+colorscheme codedark
+
+highlight ColorColumn ctermbg=darkred
+call matchadd('ColorColumn', '\%80v')
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+let g:markdown_folding=1
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Clipboard
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+noremap <Leader>Y "*y
+noremap <Leader>P "*p
+
