@@ -9,12 +9,12 @@
 #umask 022
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
@@ -30,7 +30,7 @@ fi
 unset SSH_AGENT_PID
 SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
+gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # Docker related settings for Debian WSL2
 # https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9
