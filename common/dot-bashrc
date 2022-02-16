@@ -101,9 +101,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -112,5 +109,24 @@ if ! shopt -oq posix; then
   fi
 fi
 
-eval "$(oh-my-posh --init --shell bash --config ~/.local/oh-my-posh/themes/amro-no-emoji.omp.json)"
+if command -v brew > /dev/null 2>&1; then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
+
+if [ -f "$HOME/.local/git/git-completion.bash" ]; then
+  . "$HOME/.local/git/git-completion.bash"
+fi
+
+if command -v oh-my-posh > /dev/null; then
+  eval "$(oh-my-posh --init --shell bash --config ~/.local/oh-my-posh/themes/amro-no-emoji.omp.json)"
+fi
 
