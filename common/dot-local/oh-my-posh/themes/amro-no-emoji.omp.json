@@ -6,13 +6,16 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "session",
+          "type": "python",
           "style": "plain",
-          "foreground": "#45F1C2",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#111111",
+          "background": "#FFDE57",
           "properties": {
-            "prefix": "",
-            "postfix": " on",
-            "template": "{{ .UserName }}"
+            "prefix": "(",
+            "postfix": ") ",
+            "display_mode": "environment",
+            "template": "{{ .Venv }} python {{ .Major }}.{{ .Minor }}"
           }
         },
         {
@@ -21,7 +24,8 @@
           "foreground": "#0CA0D8",
           "properties": {
             "style": "full",
-            "prefix": " \uf07b ",
+            "prefix": "\uf07b ",
+            "postfix": " ",
             "folder_separator_icon": "/"
           }
         },
