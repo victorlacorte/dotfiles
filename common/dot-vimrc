@@ -14,7 +14,12 @@ Plugin 'tomasiser/vim-code-dark'
 " Language related
 " Plugin 'pangloss/vim-javascript' "  JS
 " Plugin 'maxmellon/vim-jsx-pretty' " JSX
-Plugin 'sheerun/vim-polyglot'
+
+
+" Plugin 'sheerun/vim-polyglot'
+
+
+Plugin 'editorconfig/editorconfig-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -22,6 +27,10 @@ filetype plugin indent on
 
 " NERDTree configuration
 let NERDTreeShowHidden=1
+
+
+" editorconfig/editorconfig-vim configuration
+let g:EditorConfig_max_line_indicator="none"
 
 set number
 autocmd InsertEnter * :set relativenumber
@@ -33,6 +42,9 @@ set visualbell
 set t_vb=
 
 syntax on
+" Use new regex engine (otherwise redrawtime will eventually be exceeded)
+" https://jameschambers.co.uk/vim-typescript-slow
+set re=0
 colorscheme codedark
 
 highlight ColorColumn ctermbg=darkred
