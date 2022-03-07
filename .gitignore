@@ -1,0 +1,10 @@
+*.bak
+**/configstore/**
+
+**/htop
+**/iterm2
+**/nvim/*
+!**/nvim/init.vim
+!**/nvim/lua
+!**/nvim/plugin
+
