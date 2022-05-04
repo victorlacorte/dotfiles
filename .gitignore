@@ -1,10 +1,14 @@
 *.bak
 **/configstore/**
 
-**/htop
-**/iterm2
-**/nvim/*
-!**/nvim/init.vim
-!**/nvim/lua
-!**/nvim/plugin
+common/dot-config/*
 
+!common/dot-config/nvim
+common/dot-config/nvim/*
+!common/dot-config/nvim/init.vim
+!common/dot-config/nvim/after
+!common/dot-config/nvim/ftplugin
+!common/dot-config/nvim/lua
+!common/dot-config/nvim/plugin
+
+!common/dot-config/oh-my-posh

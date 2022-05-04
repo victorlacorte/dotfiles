@@ -9,6 +9,14 @@ require('telescope').setup {
                 ['<esc>'] = actions.close
             },
         },
+        -- :h telescope.setup()
+        path_display = { "truncate" },
+        -- path_display = {
+        --     shorten = { len = 1, exclude = {-2, -1} }
+        -- },
+        -- path_display = {
+        --     truncate = 3
+        -- },
     },
     -- pickers = {
     --     find_files = {

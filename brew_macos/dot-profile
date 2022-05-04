@@ -53,5 +53,5 @@ CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 # The original version is saved in .profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH"
 # Not sure if exporting here is necessary
-export PATH
+# export PATH
 

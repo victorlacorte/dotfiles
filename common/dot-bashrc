@@ -130,3 +130,8 @@ if command -v oh-my-posh > /dev/null; then
   eval "$(oh-my-posh --init --shell bash --config ~/.config/oh-my-posh/themes/amro-no-emoji.omp.json)"
 fi
 
+# Gruvbox colorscheme
+# https://github.com/gruvbox-community/gruvbox/wiki/Terminal-specific
+if [ -f "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette_osx.sh" ]; then
+  . "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette_osx.sh"
+fi

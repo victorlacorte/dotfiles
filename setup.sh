@@ -2,19 +2,19 @@
 
 set -euo pipefail
 
-# function command_exists() {
+# command_exists() {
 # 	command -v "$@" > /dev/null 2>&1
 # }
-
-
-download_nvim_plug() {
-    curl -fsSL https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -o ~/.config/nvim/autoload/plug.vim --create-dirs
-}
 
 
 #function create_vim_undodir() {
 #  mkdir -p "$HOME/.vim/undodir"
 #}
+
+
+download_nvim_plug() {
+    curl -fsSL https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -o ~/.config/nvim/autoload/plug.vim --create-dirs
+}
 
 
 # Works for bash and zsh
@@ -170,7 +170,7 @@ setup_vundle() {
 
 # APT specific
 # Docker is installed on another function
-install_requirements() {
+install_apt_requirements() {
     local pre_reqs='
     apt-transport-https
     bash-completion
@@ -197,18 +197,22 @@ install_requirements() {
 # https://github.com/nvim-telescope/telescope.nvim
 # https://github.com/burntsushi/ripgrep
 # https://github.com/sharkdp/fd
-brew_install_requirements() {
+install_brew_requirements() {
     # https://ohmyposh.dev/docs/macos
     #gnupg aka gnupg2
 
     # TODO finish the extensive list
+    # TODO --cask flag? Still unclear its usage
     local pre_reqs='
     fd
+    karabiner-elements
     iterm2
+    jq
     neovim
     ripgrep
     stow
     tmux
+    watchman
     '
 
     brew install $pre_reqs
