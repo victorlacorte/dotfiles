@@ -207,6 +207,7 @@ install_brew_requirements() {
     fd
     karabiner-elements
     iterm2
+    jandedobbeleer/oh-my-posh/oh-my-posh
     jq
     neovim
     ripgrep
