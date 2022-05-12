@@ -23,10 +23,15 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Colorscheme
 "Plug 'tomasiser/vim-code-dark'
 Plug 'gruvbox-community/gruvbox'
+
+" Powerline
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " null-ls
 Plug 'jose-elias-alvarez/null-ls.nvim'
