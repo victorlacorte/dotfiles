@@ -12,7 +12,7 @@
           "background": "#002b36",
           "foreground": "#93a1a1",
           "properties": {
-            "style": "full"
+            "style": "letter"
           },
           "template": " \ue5ff {{ .Path }} "
         },
@@ -28,18 +28,22 @@
             "fetch_upstream_icon": true
           },
           "template": " {{ .HEAD }} {{ if .Working.Changed }}{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} "
-        }
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "right",
-      "segments": [
+        },
+        {
+          "type": "go",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "background": "#8ED1F7",
+          "foreground": "#111111",
+          "properties": {
+            "fetch_version": true
+          },
+          "template": " \ue626 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        },
         {
           "type": "node",
           "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "powerline_symbol": "\ue0b0",
           "background": "#6CA35E",
           "foreground": "#ffffff",
           "properties": {
@@ -52,36 +56,13 @@
         {
           "type": "python",
           "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "powerline_symbol": "\ue0b0",
           "background": "#0087D8",
           "foreground": "#003544",
           "properties": {
             "display_mode": "environment"
           },
           "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{.Venv }} {{ .Full }}{{ end }} "
-        },
-        {
-          "type": "go",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
-          "background": "#8ED1F7",
-          "foreground": "#111111",
-          "properties": {
-            "fetch_version": true
-          },
-          "template": " \ue626 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
-        },
-        {
-          "type": "time",
-          "style": "diamond",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b4",
-          "invert_powerline": true,
-          "background": "#002b36",
-          "foreground": "#93a1a1",
-          "template": " \uf5ef {{ .CurrentDate | date .Format }} "
         }
       ],
       "type": "prompt"

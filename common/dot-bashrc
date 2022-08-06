@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+command_exists() {
+	command -v "$@" > /dev/null 2>&1
+}
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -22,6 +26,9 @@ HISTFILESIZE=2000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# enable the spell checker
+shopt -s cdspell
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -109,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if command -v brew > /dev/null 2>&1; then
+if command_exists brew; then
   HOMEBREW_PREFIX="$(brew --prefix)"
 
   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
@@ -130,12 +137,16 @@ if [ -f "$HOME/.config/git/git-completion.bash" ]; then
   . "$HOME/.config/git/git-completion.bash"
 fi
 
-if command -v oh-my-posh > /dev/null; then
+if command_exists oh-my-posh; then
   eval "$(oh-my-posh --init --shell bash --config ~/.config/oh-my-posh/themes/takuya-modified.omp.json)"
 fi
 
 # Gruvbox colorscheme
 # https://github.com/gruvbox-community/gruvbox/wiki/Terminal-specific
-if [ -f "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette_osx.sh" ]; then
-  . "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette_osx.sh"
+gruvbox="$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
+
+if [ -f "$gruvbox" ]; then
+  source "$gruvbox"
 fi
+
+unset gruvbox

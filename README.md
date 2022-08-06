@@ -55,3 +55,20 @@
 ### IdeaVim
 
 ### Neogit
+
+### LSP
+
+#### Hover
+
+- `vim.lsp.buf.hover()`: Displays hover information about the
+  symbol under the cursor in a floating window. Calling the
+  function twice will jump into the floating window.
+
+  - TODO How to indicate there are more docs to be shown?
+
+#### Check out
+
+- [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
+- [Reddit: Nvim suggestions for Python development](https://www.reddit.com/r/neovim/comments/pgiobu/neovim_setup_suggestions_for_python_development/)
+- [Nvim for beginners: refactoring'](https://alpha2phi.medium.com/neovim-for-beginners-refactoring-4f517d12a43f)
+- [nvim-lspconfig: pylsp](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp)

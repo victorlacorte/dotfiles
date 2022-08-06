@@ -39,12 +39,6 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 " undodir
 Plug 'mbbill/undotree'
 
-" Experimental
-" Netrw
-"Plug 'tpope/vim-vinegar'
-
-"Plug 'vim-utils/vim-man'
-
 call plug#end()
 
 " Setup undodir
@@ -63,6 +57,8 @@ endif
 
 lua require('setup')
 
+
+" sets
 set number
 set incsearch
 set nowrap
@@ -77,6 +73,8 @@ set relativenumber
 set cursorline
 set cursorlineopt=number
 set clipboard+=unnamedplus
+" experimental
+set updatetime=50
 
 "colorscheme codedark
 colorscheme  gruvbox

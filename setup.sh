@@ -2,15 +2,36 @@
 
 set -euo pipefail
 
-# command_exists() {
-# 	command -v "$@" > /dev/null 2>&1
-# }
+command_exists() {
+	command -v "$@" > /dev/null 2>&1
+}
 
 
 #function create_vim_undodir() {
 #  mkdir -p "$HOME/.vim/undodir"
 #}
 
+# https://github.com/altercation/vim-colors-solarized/blob/master/colors/solarized.vim
+# SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      sRGB        HSB
+# --------- ------- ---- -------  ----------- ---------- ----------- -----------
+# base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
+# base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
+# base01    #586e75 10/7 brgreen  240 #4e4e4e 45 -07 -07  88 110 117 194  25  46
+# base00    #657b83 11/7 bryellow 241 #585858 50 -07 -07 101 123 131 195  23  51
+# base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
+# base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
+# base2     #eee8d5  7/7 white    254 #d7d7af 92 -00  10 238 232 213  44  11  93
+# base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99
+# yellow    #b58900  3/3 yellow   136 #af8700 60  10  65 181 137   0  45 100  71
+# orange    #cb4b16  9/3 brred    166 #d75f00 50  50  55 203  75  22  18  89  80
+# red       #dc322f  1/1 red      160 #d70000 50  65  45 220  50  47   1  79  86
+# magenta   #d33682  5/5 magenta  125 #af005f 50  65 -05 211  54 130 331  74  83
+# violet    #6c71c4 13/5 brmagenta 61 #5f5faf 50  15 -45 108 113 196 237  45  77
+# blue      #268bd2  4/4 blue      33 #0087ff 55 -10 -45  38 139 210 205  82  82
+# cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
+# green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
+#
+# Combinations: dark - base03:base0, light - base3:base00
 
 download_nvim_plug() {
     curl -fsSL https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -o ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -18,11 +39,13 @@ download_nvim_plug() {
 
 
 # Works for bash and zsh
+# TODO the extension would be saved as .bash in either case
 download_git_completion() {
     curl -fsSL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.local/git/git-completion.bash
 }
 
 
+# TODO what about zsh?
 install_macos_homebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
@@ -130,6 +153,7 @@ download_caskaydia_cove_font() {
 }
 
 
+# This is the one I'm using atm
 download_hack_font() {
     download_nerd_font Hack Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
 }
@@ -197,25 +221,37 @@ install_apt_requirements() {
 # https://github.com/nvim-telescope/telescope.nvim
 # https://github.com/burntsushi/ripgrep
 # https://github.com/sharkdp/fd
+#
+# https://github.com/charmbracelet/glow
+#
+# https://github.com/keycastr/keycastr
 install_brew_requirements() {
     # https://ohmyposh.dev/docs/macos
     #gnupg aka gnupg2
 
     # TODO finish the extensive list
-    # TODO --cask flag? Still unclear its usage
-    local pre_reqs='
+    local reqs='
     fd
+    fzf
     karabiner-elements
+    lua
+    luarocks
     iterm2
     jandedobbeleer/oh-my-posh/oh-my-posh
     jq
     neovim
+    pnpm
     ripgrep
     stow
     tmux
     watchman
     '
+    brew install $reqs
 
-    brew install $pre_reqs
+    local cask_reqs='
+    karabiner-elements
+    keycastr
+    '
+    brew install --cask $cask_reqs
 }
 
