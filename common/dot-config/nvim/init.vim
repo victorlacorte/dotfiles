@@ -28,6 +28,7 @@ Plug 'tpope/vim-rhubarb'
 " Colorscheme
 "Plug 'tomasiser/vim-code-dark'
 Plug 'gruvbox-community/gruvbox'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Powerline
 Plug 'nvim-lualine/lualine.nvim'
@@ -75,6 +76,7 @@ set cursorlineopt=number
 set clipboard+=unnamedplus
 " experimental
 set updatetime=50
+set termguicolors
 
 "colorscheme codedark
 colorscheme  gruvbox
