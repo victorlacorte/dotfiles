@@ -4,7 +4,7 @@ common/dot-config/*
 
 !common/dot-config/nvim
 common/dot-config/nvim/*
-!common/dot-config/nvim/init.vim
+!common/dot-config/nvim/init.lua
 !common/dot-config/nvim/after
 !common/dot-config/nvim/ftplugin
 !common/dot-config/nvim/lua
