@@ -235,6 +235,7 @@ install_brew_requirements() {
     fzf
     karabiner-elements
     lua
+    lua-language-server
     luarocks
     iterm2
     jandedobbeleer/oh-my-posh/oh-my-posh
