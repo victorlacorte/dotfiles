@@ -23,6 +23,8 @@
 
 ### Karabiner Elements
 
+- [Mouse events are not enabled by default](https://karabiner-elements.pqrs.org/docs/help/how-to/mouse-button/): `Devices -> check Mouse events`
+
 #### Apple internal keyboard
 
 - Remap `fn` to `left_control`

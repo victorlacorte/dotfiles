@@ -11,4 +11,8 @@ common/dot-config/nvim/*
 !common/dot-config/nvim/plugin
 common/dot-config/nvim/plugin/packer_compiled.lua
 
+!common/dot-config/karabiner
+common/dot-config/karabiner/*
+!common/dot-config/karabiner/karabiner.json
+
 !common/dot-config/oh-my-posh
