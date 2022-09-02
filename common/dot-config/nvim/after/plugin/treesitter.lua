@@ -1,6 +1,6 @@
-local status, configs = pcall(require, 'nvim-treesitter.configs')
+local status_configs, configs = pcall(require, 'nvim-treesitter.configs')
 
-if not status then
+if not status_configs then
     return
 end
 
@@ -14,14 +14,35 @@ configs.setup({
         'dart',
         'gitignore',
         'html',
-        'javascript',
         'jsdoc',
         'lua',
         'python',
         'swift',
+        --'javascript',
+        --'typescript',
         'tsx',
-        'typescript',
         'vim',
         'yaml',
     },
+    highlight = {
+        enable = true,
+        disable = {},
+    },
+    indent = {
+        enable = true,
+        disable = {},
+    },
+    autotag = {
+        enable = true,
+    },
 })
+
+
+local status_parsers, parsers = pcall(require, 'nvim-treesitter.parsers')
+
+if not status_parsers then
+    return
+end
+
+local parser_config = parsers.get_parser_configs()
+parser_config.tsx.filetype_to_parsername = { 'javascript', 'typescript.tsx' }

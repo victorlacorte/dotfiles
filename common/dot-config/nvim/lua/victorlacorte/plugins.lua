@@ -21,6 +21,8 @@ packer.startup(function(use)
 
     -- colorscheme
     use('ellisonleao/gruvbox.nvim')
+    --use('Mofiqul/vscode.nvim')
+    --use('folke/tokyonight.nvim')
 
     -- color string highlighter
     use('norcalli/nvim-colorizer.lua')

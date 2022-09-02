@@ -142,11 +142,12 @@ if command_exists oh-my-posh; then
 fi
 
 # Gruvbox colorscheme
+# TODO does not seem necessary/to work with iTerm2
 # https://github.com/gruvbox-community/gruvbox/wiki/Terminal-specific
-gruvbox="$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
-
-if [ -f "$gruvbox" ]; then
-  source "$gruvbox"
-fi
-
-unset gruvbox
+#gruvbox="$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
+#
+#if [ -f "$gruvbox" ]; then
+#  source "$gruvbox"
+#fi
+#
+#unset gruvbox
