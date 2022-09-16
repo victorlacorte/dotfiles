@@ -1,0 +1,18 @@
+[user]
+	name = Victor Lacorte
+	email = victor.lacorte@useorigin.com
+[alias]
+	fixup = !git commit --fixup=$(git log --oneline -n 30 | fzf | cut -d\" \" -f1)
+	amendnn = !git commit --amend --no-edit --no-verify
+[core]
+	editor = nvim
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+
