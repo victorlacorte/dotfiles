@@ -1,46 +1,45 @@
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
+path_append() {
+  local flags=$1
+  local path=$2
 
-if [ -d /opt/homebrew/bin ]; then
-    PATH="/opt/homebrew/bin:$PATH"
-fi
+  case ":$PATH:" in
+  *:$path:*) ;;
+
+  *)
+    if [ $flags $path ]; then
+      PATH="$path:$PATH"
+    fi
+    ;;
+  esac
+}
+
+VOLTA_HOME=$HOME/.volta
+PNPM_HOME="$HOME/Library/pnpm"
+LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+
+path_append -d $HOME/.cargo/bin
+path_append -d $HOME/.poetry/bin
+path_append -d $HOME/bin
+path_append -d $HOME/go/bin
+path_append -d $VOLTA_HOME/bin
+path_append -d '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
+path_append -d /Library/Frameworks/Python.framework/Versions/3.10/bin
+path_append -d /opt/homebrew/bin
+path_append -d /opt/homebrew/opt/libpq/bin
 
 # Either this is necessary or 'ls -G'
 export CLICOLOR=1 # the 'export' is required here
-
-# Rust setup
-if [ -f "$HOME/.cargo/env" ]; then
-    . "$HOME/.cargo/env"
-fi
-
-# Volta setup
-VOLTA_HOME=$HOME/.volta
-PATH="$VOLTA_HOME/bin:$PATH"
-
-# Add Visual Studio Code (code) to the path
-
-code_bin='/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
-
-if [ -x "$code_bin" ]; then
-    PATH="$code_bin:$PATH"
-fi
-
-unset code_bin
 
 # Set gpg-agent for SSH authentication
 unset SSH_AGENT_PID
 
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-    SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
 GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye > /dev/null
-
-if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-fi
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # TODO almost sure zsh does not load the .profile like bash does. Instead,
 # there is .zprofile
@@ -48,26 +47,19 @@ fi
 # 	. "$HOME/.zshrc"
 # fi
 
-PATH="$HOME/.poetry/bin:$PATH"
-
-PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
-CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
-
-# Setting PATH for Python 3.10
-# The original version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH"
-# Not sure if exporting here is necessary
-# export PATH
-
-# pnpm
-PNPM_HOME="/Users/victor/Library/pnpm"
-
-# Currently, it is not possible to install older Node versions with PNPM since it will attempt to resolve an incorrect URL. For example:
+# TODO Currently, it is not possible to install older Node versions with PNPM since
+# it will attempt to resolve an incorrect URL. For example:
+#
 # https://nodejs.org/download/release/v14.17.1/node-v14.17.1-darwin-arm64.tar.gz
+#
 # while the correct one would be:
+#
 # https://nodejs.org/dist/v14.17.1/node-v14.17.1-darwin-x64.tar.gz
 #
 # if [ -d "$PNPM_HOME" ]; then
 #     PATH="$PNPM_HOME:$PATH"
 # fi
+
+if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ]; then
+  . "$HOME/.bashrc"
+fi
