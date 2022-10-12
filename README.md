@@ -74,3 +74,22 @@
 - [Reddit: Nvim suggestions for Python development](https://www.reddit.com/r/neovim/comments/pgiobu/neovim_setup_suggestions_for_python_development/)
 - [Nvim for beginners: refactoring'](https://alpha2phi.medium.com/neovim-for-beginners-refactoring-4f517d12a43f)
 - [nvim-lspconfig: pylsp](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp)
+
+### Colorschemes
+
+- [One Dark](https://github.com/joshdick/onedark.vim)
+- [One Dark Nvim](https://github.com/navarasu/onedark.nvim)
+- [Tokyo Night](https://github.com/folke/tokyonight.nvim)
+- [Solarized](https://github.com/shaunsingh/solarized.nvim)
+- [Solarized colors](https://github.com/altercation/vim-colors-solarized)
+- [Solarized Nvim](https://github.com/svrana/neosolarized.nvim)
+- [Color buddy](https://github.com/tjdevries/colorbuddy.nvim)
+- [Material](https://github.com/marko-cerovac/material.nvim)
+- [Nebulous](https://github.com/Yagua/nebulous.nvim)
+- [Material theme](https://material-theme.site)
+- [Coolors](https://coolors.co/palettes/popular)
+- [iTerm2 Material Design](https://github.com/MartinSeeler/iterm2-material-design)
+
+## TODO
+
+- match jsx/tsx component bracket

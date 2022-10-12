@@ -9,8 +9,8 @@
           "style": "diamond",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b0",
-          "background": "#002b36",
-          "foreground": "#93a1a1",
+          "background": "#1d3557",
+          "foreground": "#a8dadc",
           "properties": {
             "style": "letter"
           },
@@ -20,8 +20,8 @@
           "type": "git",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
-          "background": "#93a1a1",
-          "foreground": "#002b36",
+          "background": "#1d3557",
+          "foreground": "#a8dadc",
           "properties": {
             "branch_icon": "\ue725 ",
             "fetch_status": true,
@@ -49,7 +49,7 @@
           "properties": {
             "fetch_package_manager": true,
             "npm_icon": "<#cc3a3a>\ue5fa</>",
-            "yarn_icon": "<#348cba>\uf61a</>"
+            "yarn_icon": "<#2188B6>\uf61a</>"
           },
           "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
         },

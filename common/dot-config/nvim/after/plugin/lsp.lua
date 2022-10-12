@@ -39,6 +39,9 @@ end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- CSS-related
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 -- npm install -g pyright
 lspconfig.pyright.setup({})
 
@@ -81,6 +84,12 @@ lspconfig.tsserver.setup({
     on_attach = on_attach,
 })
 
+-- https://github.com/hrsh7th/vscode-langservers-extracted
+lspconfig.cssls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
 local null_ls_status, null_ls = pcall(require, 'null-ls')
 
 if not null_ls_status then
@@ -104,5 +113,8 @@ null_ls.setup({
 
         -- python3 -m pip install git+https://github.com/psf/black
         formatting.black,
+
+        -- go install mvdan.cc/sh/v3/cmd/shfmt@latest
+        formatting.shfmt
     },
 })

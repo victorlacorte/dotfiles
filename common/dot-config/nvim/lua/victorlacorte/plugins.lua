@@ -20,9 +20,10 @@ packer.startup(function(use)
     use('wbthomason/packer.nvim')
 
     -- colorscheme
-    use('ellisonleao/gruvbox.nvim')
+    --use('ellisonleao/gruvbox.nvim')
     --use('Mofiqul/vscode.nvim')
     --use('folke/tokyonight.nvim')
+    use('marko-cerovac/material.nvim')
 
     -- color string highlighter
     use('norcalli/nvim-colorizer.lua')
@@ -42,6 +43,10 @@ packer.startup(function(use)
     -- TODO this needs more exploration
     -- git decorations
     use('lewis6991/gitsigns.nvim')
+
+    -- tpope Git plugins
+    use('tpope/vim-fugitive')
+    use('tpope/vim-rhubarb')
 
     -- use treesitter to autoclose and autorename html tag
     use('windwp/nvim-ts-autotag')

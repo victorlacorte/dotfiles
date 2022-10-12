@@ -6,14 +6,14 @@ path_append() {
   *:$path:*) ;;
 
   *)
-    if [ $flags $path ]; then
+    if [ "$flags" "$path" ]; then
       PATH="$path:$PATH"
     fi
     ;;
   esac
 }
 
-VOLTA_HOME=$HOME/.volta
+VOLTA_HOME="$HOME/.volta"
 PNPM_HOME="$HOME/Library/pnpm"
 LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"

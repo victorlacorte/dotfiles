@@ -5,21 +5,24 @@ if not status_configs then
 end
 
 configs.setup({
-    -- Automatically install missing parsers when entering buffer
-    auto_install = true,
-
+    autotag = {
+        enable = true,
+    },
     -- :TSInstallInfo command to view supported languages
     ensure_installed = {
+        'bash',
+        'comment',
         'css',
         'dart',
         'gitignore',
         'html',
         'jsdoc',
         'lua',
+        'markdown',
         'python',
         'swift',
-        --'javascript',
-        --'typescript',
+        'javascript',
+        'typescript',
         'tsx',
         'vim',
         'yaml',
@@ -32,17 +35,5 @@ configs.setup({
         enable = true,
         disable = {},
     },
-    autotag = {
-        enable = true,
-    },
+    sync_install = false,
 })
-
-
-local status_parsers, parsers = pcall(require, 'nvim-treesitter.parsers')
-
-if not status_parsers then
-    return
-end
-
-local parser_config = parsers.get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { 'javascript', 'typescript.tsx' }
