@@ -19,8 +19,8 @@ local function on_attach(client, bufnr)
     buf_set_keymap('n', '<Leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
     if client.name == 'tsserver' then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.document_range_formatting = false
         return
     end
 
@@ -30,8 +30,7 @@ local function on_attach(client, bufnr)
             group = augroup,
             buffer = bufnr,
             callback = function()
-                -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                vim.lsp.buf.formatting_sync()
+                vim.lsp.buf.format({ bufnr = bufnr })
             end,
         })
     end
@@ -90,10 +89,46 @@ lspconfig.cssls.setup({
     on_attach = on_attach,
 })
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
+-- https://rust-analyzer.github.io/manual.html#installation
+lspconfig.rust_analyzer.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        ['rust-analyzer'] = {
+            imports = {
+                granularity = {
+                    group = 'module',
+                },
+                prefix = 'self',
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
+lspconfig.dartls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    --settings = {
+    --    dart = {
+    --        closingLabels = true,
+    --        completeFunctionCalls = true,
+    --    },
+    --},
+})
+
 local null_ls_status, null_ls = pcall(require, 'null-ls')
 
 if not null_ls_status then
-    print('no null-ls!')
     return
 end
 
@@ -115,6 +150,15 @@ null_ls.setup({
         formatting.black,
 
         -- go install mvdan.cc/sh/v3/cmd/shfmt@latest
-        formatting.shfmt
+        formatting.shfmt,
+
+        -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#rustfmt
+        -- rustup component add rustfmt
+        --formatting.rustfmt
+
+        -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#deno_fmt
+        formatting.deno_fmt.with({
+            filetypes = { 'markdown' },
+        }),
     },
 })

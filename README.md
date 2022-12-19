@@ -1,6 +1,6 @@
 # dotfiles
 
-## TODO MacBook
+## MacBook
 
 - [Trackpad gestures](https://support.apple.com/en-us/HT204895)
 
@@ -21,9 +21,18 @@
   - [Brew formula](https://formulae.brew.sh/formula/pinentry-mac)
   - [SO discussion](https://stackoverflow.com/a/40066889/1643883)
 
+### Battery
+
+Put hard disks to sleep when possible: Only on Battery
+
+Wake for network access: Only on Power Adapter
+
+Optimize video streaming while on battery: True
+
 ### Karabiner Elements
 
-- [Mouse events are not enabled by default](https://karabiner-elements.pqrs.org/docs/help/how-to/mouse-button/): `Devices -> check Mouse events`
+- [Mouse events are not enabled by default](https://karabiner-elements.pqrs.org/docs/help/how-to/mouse-button/):
+  `Devices -> check Mouse events`
 
 #### Apple internal keyboard
 
@@ -62,9 +71,9 @@
 
 #### Hover
 
-- `vim.lsp.buf.hover()`: Displays hover information about the
-  symbol under the cursor in a floating window. Calling the
-  function twice will jump into the floating window.
+- `vim.lsp.buf.hover()`: Displays hover information about the symbol under the
+  cursor in a floating window. Calling the function twice will jump into the
+  floating window.
 
   - TODO How to indicate there are more docs to be shown?
 

@@ -9,7 +9,7 @@ local status_colors, colors = pcall(require, 'material.colors')
 if status_colors then
     material.setup({
         custom_highlights = {
-            ColorColumn = { bg = colors.darkred }
+            ColorColumn = { bg = colors.active }
         }
     })
 end

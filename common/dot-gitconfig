@@ -4,6 +4,7 @@
 [alias]
 	fixup = !git commit --fixup=$(git log --oneline -n 30 | fzf | cut -d\" \" -f1)
 	amendnn = !git commit --amend --no-edit --no-verify
+	pushn = !git push --no-verify
 [core]
 	editor = nvim
 [commit]

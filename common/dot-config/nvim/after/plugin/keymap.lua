@@ -19,9 +19,6 @@ n('x', '"_x')
 --n('<Leader>pv', ':Ex<CR>')
 n('<Leader>u', ':UndotreeToggle<CR>')
 
--- Jump to the previous buffer location
---n('<Leader>jp', '<C-^>')
-
 --n('<Leader>te', ':tabedit')
 --n('<Leader>tn', ':tabnext<CR>')
 --n('<Leader>tp', ':tabprevious<CR>')
@@ -39,6 +36,7 @@ n('<Leader>sv', ':vsplit<Return><C-w>w')
 -- Telescope
 n('<C-p>', "<Cmd>lua require('telescope.builtin').find_files({ previewer = false, shorten_path = true })<CR>")
 n('<Leader>ps', '<Cmd>Telescope live_grep<CR>')
+--n('<Leader>ps', "<Cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>")
 n('<Leader>vb', '<Cmd>Telescope buffers<CR>')
 --n('<Leader>fh', '<Cmd>Telescope help_tags<CR>')
 n('<Leader>vd', '<Cmd>Telescope diagnostics<CR>')

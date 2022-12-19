@@ -143,15 +143,26 @@ download_caskaydia_cove_font() {
 
 # This is the one I'm using atm
 download_hack_font() {
-  download_nerd_font Hack Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+  #download_nerd_font Hack Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+  download_nerd_font Hack Hack%20Regular%20Nerd%20Font%20Complete.ttf
+}
+
+download_fira_code() {
+  #local url="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf"
+  #curl -fsSL "$url" -o "$HOME/Downloads/FireCodeRetina.ttf"
+
+  local url="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf"
+
+  curl -fsSL "$url" -o "$HOME/Downloads/FireCodeRegular.ttf"
 }
 
 download_nerd_font() {
   local patched_font=$1
   local font_file=$2
 
-  # echo "Downloading $patched_font font..."
   local url="https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/$patched_font/Regular/complete/$font_file"
+
+  echo "Downloading $patched_font font..."
 
   curl -fsSL "$url" -o "$HOME/Downloads/$(echo $font_file | tr -d %20)"
 }
@@ -178,6 +189,9 @@ setup_vundle() {
 # The Smooth theme seems better
 download_iterm2_material_colors() {
   curl -fsSL https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors -o material-design-colors.itermcolors
+}
+
+setup_flutter() {
 }
 
 # APT specific
@@ -230,6 +244,7 @@ install_brew_requirements() {
     neovim
     pnpm
     ripgrep
+    rust-analyzer
     stow
     tmux
     watchman

@@ -96,4 +96,10 @@ packer.startup(function(use)
 
     -- Vscode-like pictograms
     use('onsails/lspkind.nvim')
+
+    -- TODO flutter testing
+    --use({
+    --    'akinsho/flutter-tools.nvim',
+    --    requires = { 'nvim-lua/plenary.nvim' }
+    --})
 end)
