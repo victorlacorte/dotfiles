@@ -1,4 +1,4 @@
-local has = function(x)
+local function has(x)
     return vim.fn.has(x) == 1
 end
 

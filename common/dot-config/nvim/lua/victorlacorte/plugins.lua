@@ -8,8 +8,6 @@ end
 --
 -- use('williamboman/mason.nvim')
 --
--- use('rafamadriz/friendly-snippets')
---
 -- TODO whenever I feel like using more tabs in the workflow
 --use('akinsho/bufferline.nvim')
 --
@@ -60,6 +58,8 @@ packer.startup(function(use)
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     })
 
+    use('nvim-treesitter/playground')
+
     -- Fuzzy finder over lists
     use({
         'nvim-telescope/telescope.nvim',
@@ -102,4 +102,6 @@ packer.startup(function(use)
     --    'akinsho/flutter-tools.nvim',
     --    requires = { 'nvim-lua/plenary.nvim' }
     --})
+
+    use('rafamadriz/friendly-snippets')
 end)

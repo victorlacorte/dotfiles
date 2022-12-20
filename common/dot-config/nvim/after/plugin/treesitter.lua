@@ -5,9 +5,6 @@ if not status_configs then
 end
 
 configs.setup({
-    autotag = {
-        enable = true,
-    },
     -- :TSInstallInfo command to view supported languages
     ensure_installed = {
         'bash',
@@ -15,6 +12,7 @@ configs.setup({
         'css',
         'dart',
         'gitignore',
+        'help',
         'html',
         'javascript',
         'jsdoc',
@@ -29,13 +27,18 @@ configs.setup({
         'vim',
         'yaml',
     },
+    sync_install = false,
+    auto_install = true,
+    autotag = {
+        enable = true,
+    },
     highlight = {
         enable = true,
-        disable = {},
+        -- disable = {},
+        additional_vim_regex_highlighting = false
     },
-    indent = {
-        enable = true,
-        disable = {},
-    },
-    sync_install = false,
+    --indent = {
+    --    enable = true,
+    --    disable = {},
+    --},
 })

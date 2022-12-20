@@ -17,6 +17,8 @@ local function on_attach(client, bufnr)
     buf_set_keymap('n', '<Leader>gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<Leader>h', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', '<Leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '[d', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', ']d', ':lua vim.diagnostic.goto_next()<CR>', opts)
 
     if client.name == 'tsserver' then
         client.server_capabilities.document_formatting = false
@@ -36,7 +38,7 @@ local function on_attach(client, bufnr)
     end
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- CSS-related
 capabilities.textDocument.completion.completionItem.snippetSupport = true
