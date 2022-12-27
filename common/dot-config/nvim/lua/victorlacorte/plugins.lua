@@ -89,6 +89,8 @@ packer.startup(function(use)
     -- completion engine plugin
     use('hrsh7th/nvim-cmp')
 
+    use('hrsh7th/cmp-emoji')
+
     -- Snippet engine
     use('L3MON4D3/LuaSnip')
     -- luasnip completion source for nvim-cmp

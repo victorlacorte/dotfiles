@@ -64,7 +64,7 @@ vim.keymap.set('n', '<Leader>sv', ':vsplit<Return><C-w>w')
 --vim.keymap.set('n', '<C-w><Right>', ':vertical resize +2<CR>')
 
 -- Telescope
-vim.keymap.set('n', '<C-p>', project_files)
+vim.keymap.set('n', '<C-p>', builtin.find_files)
 vim.keymap.set('n', '<Leader>ps', project_search)
 vim.keymap.set('n', '<Leader>vb', builtin.buffers)
 vim.keymap.set('n', '<Leader>vd', builtin.diagnostics)

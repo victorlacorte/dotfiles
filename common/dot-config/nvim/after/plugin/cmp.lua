@@ -71,11 +71,12 @@ cmp.setup {
         format = lspkind.cmp_format({ mode = 'symbol_text', maxwidth = 50 })
     },
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
+        --{ name = 'nvim_lsp' },
+        --{ name = 'nvim_lua' },
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'emoji' },
     }),
     --confirm_opts = {
     --    behavior = cmp.ConfirmBehavior.Replace,
