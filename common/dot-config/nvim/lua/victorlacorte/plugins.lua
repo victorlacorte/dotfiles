@@ -12,7 +12,8 @@ end
 --use('akinsho/bufferline.nvim')
 --
 -- LSP UIs
---use( 'glepnir/lspsaga.nvim'
+--use('glepnir/lspsaga.nvim')
+
 packer.startup(function(use)
     -- Packer can manage itself
     use('wbthomason/packer.nvim')
@@ -78,23 +79,18 @@ packer.startup(function(use)
         requires = { 'nvim-lua/plenary.nvim' },
     })
 
-    -- nvim-cmp source for neovim's built-in language server client
-    use('hrsh7th/cmp-nvim-lsp')
-    -- nvim-cmp source for buffer words
+    -- source plugins
+    use('saadparwaiz1/cmp_luasnip')
     use('hrsh7th/cmp-buffer')
-    -- nvim-cmp source for filesystem paths
+    use('hrsh7th/cmp-nvim-lsp')
     use('hrsh7th/cmp-path')
-    -- nvim-cmp source for vim's cmdline
     use('hrsh7th/cmp-cmdline')
-    -- completion engine plugin
-    use('hrsh7th/nvim-cmp')
-
     use('hrsh7th/cmp-emoji')
+
+    use('hrsh7th/nvim-cmp')
 
     -- Snippet engine
     use('L3MON4D3/LuaSnip')
-    -- luasnip completion source for nvim-cmp
-    use('saadparwaiz1/cmp_luasnip')
 
     -- Vscode-like pictograms
     use('onsails/lspkind.nvim')

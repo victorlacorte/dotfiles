@@ -71,7 +71,7 @@ cmp.setup {
         format = lspkind.cmp_format({ mode = 'symbol_text', maxwidth = 50 })
     },
     sources = cmp.config.sources({
-        --{ name = 'nvim_lsp' },
+        { name = 'nvim_lsp' },
         --{ name = 'nvim_lua' },
         { name = 'luasnip' },
         { name = 'buffer' },
