@@ -29,6 +29,10 @@ Wake for network access: Only on Power Adapter
 
 Optimize video streaming while on battery: True
 
+### iterm2
+
+Profiles > Colors > toggle on "Smart box cursor color"
+
 ### Karabiner Elements
 
 - [Mouse events are not enabled by default](https://karabiner-elements.pqrs.org/docs/help/how-to/mouse-button/):

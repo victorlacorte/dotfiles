@@ -80,9 +80,19 @@ lspconfig.sumneko_lua.setup({
     },
 })
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 lspconfig.tsserver.setup({
     capabilities = capabilities,
     on_attach = on_attach,
+    -- https://github.com/typescript-language-server/typescript-language-server#initializationoptions
+    init_options = {
+        hostInfo = 'neovim',
+        plugins = {
+            -- https://github.com/styled-components/typescript-styled-plugin
+            { name = '@styled/typescript-styled-plugin',
+                location = '/opt/homebrew/lib/node_modules/@styled/typescript-styled-plugin/lib/index.js' }
+        }
+    }
 })
 
 -- https://github.com/hrsh7th/vscode-langservers-extracted
