@@ -234,7 +234,6 @@ install_brew_requirements() {
   local reqs='
     fd
     fzf
-    karabiner-elements
     lua
     lua-language-server
     luarocks

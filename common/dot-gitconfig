@@ -1,14 +1,18 @@
 [user]
 	name = Victor Lacorte
 	email = victor.lacorte@useorigin.com
+    signingkey = 0466447711F1D8AB
 [alias]
-	fixup = !git commit --fixup=$(git log --oneline -n 30 | fzf | cut -d\" \" -f1)
 	amendnn = !git commit --amend --no-edit --no-verify
+	fixup = !git commit --fixup=$(git log --oneline -n 30 | fzf | cut -d\" \" -f1)
+    #prune= !git fetch --prune && git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}'
 	pushn = !git push --no-verify
 [core]
 	editor = nvim
 [commit]
 	gpgsign = true
+[fetch]
+	prune = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -16,4 +20,5 @@
 	required = true
 [init]
 	defaultBranch = main
-
+[rebase]
+	autoSquash = true
