@@ -18,6 +18,8 @@ PNPM_HOME="$HOME/Library/pnpm"
 LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 
+path_append -d /opt/homebrew/bin
+path_append -d /opt/homebrew/opt/libpq/bin
 path_append -d $HOME/.cargo/bin
 path_append -d $HOME/.poetry/bin
 path_append -d $HOME/bin
@@ -25,8 +27,6 @@ path_append -d $HOME/go/bin
 path_append -d $VOLTA_HOME/bin
 path_append -d '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
 path_append -d /Library/Frameworks/Python.framework/Versions/3.10/bin
-path_append -d /opt/homebrew/bin
-path_append -d /opt/homebrew/opt/libpq/bin
 
 # Either this is necessary or 'ls -G'
 export CLICOLOR=1 # the 'export' is required here
