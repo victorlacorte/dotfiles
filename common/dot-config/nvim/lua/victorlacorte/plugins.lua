@@ -1,7 +1,7 @@
 local status, packer = pcall(require, 'packer')
 
 if not status then
-    return
+  return
 end
 
 -- use('mfussenegger/nvim-dap')
@@ -15,91 +15,98 @@ end
 --use('glepnir/lspsaga.nvim')
 
 packer.startup(function(use)
-    -- Packer can manage itself
-    use('wbthomason/packer.nvim')
+  -- Packer can manage itself
+  use('wbthomason/packer.nvim')
 
-    -- colorscheme
-    --use('ellisonleao/gruvbox.nvim')
-    --use('Mofiqul/vscode.nvim')
-    --use('folke/tokyonight.nvim')
-    use('marko-cerovac/material.nvim')
+  -- colorscheme
+  --use('ellisonleao/gruvbox.nvim')
+  --use('Mofiqul/vscode.nvim')
+  --use('folke/tokyonight.nvim')
+  use('marko-cerovac/material.nvim')
 
-    -- color string highlighter
-    use('norcalli/nvim-colorizer.lua')
+  -- color string highlighter
+  use('norcalli/nvim-colorizer.lua')
 
-    -- File icons
-    use('kyazdani42/nvim-web-devicons')
+  -- File icons
+  use('kyazdani42/nvim-web-devicons')
 
-    -- statusline
-    use('nvim-lualine/lualine.nvim')
+  -- statusline
+  use('nvim-lualine/lualine.nvim')
 
-    -- undo history visualizer
-    use('mbbill/undotree')
+  -- undo history visualizer
+  use('mbbill/undotree')
 
-    -- autopair plugin
-    use('windwp/nvim-autopairs')
+  -- autopair plugin
+  use('windwp/nvim-autopairs')
 
-    -- TODO this needs more exploration
-    -- git decorations
-    use('lewis6991/gitsigns.nvim')
+  -- TODO this needs more exploration
+  -- git decorations
+  use('lewis6991/gitsigns.nvim')
 
-    -- tpope Git plugins
-    use('tpope/vim-fugitive')
-    use('tpope/vim-rhubarb')
+  -- tpope Git plugins
+  use('tpope/vim-fugitive')
+  use('tpope/vim-rhubarb')
 
-    -- use treesitter to autoclose and autorename html tag
-    use('windwp/nvim-ts-autotag')
+  use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
 
-    -- LSP
-    use('neovim/nvim-lspconfig')
+  -- use treesitter to autoclose and autorename html tag
+  use('windwp/nvim-ts-autotag')
 
-    -- Language parsing
-    use({
-        'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    })
+  -- LSP
+  use('neovim/nvim-lspconfig')
 
-    use('nvim-treesitter/playground')
+  -- Language parsing
+  use({
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  })
+  use('nvim-treesitter/nvim-treesitter-context')
 
-    -- Fuzzy finder over lists
-    use({
-        'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/plenary.nvim' }
-    })
+  -- NOTE this dependency isn't used
+  --use('nvim-treesitter/playground')
 
-    -- C port of fzf
-    use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
+  -- Fuzzy finder over lists
+  use({
+    'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-lua/plenary.nvim' }
+  })
 
-    use('nvim-telescope/telescope-file-browser.nvim')
+  -- C port of fzf
+  use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
-    -- Use Neovim as a language server to inject LSP diagnostics, code actions,
-    -- and more via Lua
-    use({
-        'jose-elias-alvarez/null-ls.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
-    })
+  use {
+    'nvim-telescope/telescope-file-browser.nvim',
+    requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
+  }
 
-    -- source plugins
-    use('saadparwaiz1/cmp_luasnip')
-    use('hrsh7th/cmp-buffer')
-    use('hrsh7th/cmp-nvim-lsp')
-    use('hrsh7th/cmp-path')
-    use('hrsh7th/cmp-cmdline')
-    use('hrsh7th/cmp-emoji')
+  -- Use Neovim as a language server to inject LSP diagnostics, code actions,
+  -- and more via Lua
+  use({
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+  })
 
-    use('hrsh7th/nvim-cmp')
+  -- source plugins
+  use('saadparwaiz1/cmp_luasnip')
+  use('hrsh7th/cmp-buffer')
+  use('hrsh7th/cmp-nvim-lsp')
+  use('hrsh7th/cmp-path')
+  use('hrsh7th/cmp-cmdline')
+  use('hrsh7th/cmp-emoji')
 
-    -- Snippet engine
-    use('L3MON4D3/LuaSnip')
+  use('hrsh7th/nvim-cmp')
 
-    -- Vscode-like pictograms
-    use('onsails/lspkind.nvim')
+  -- Snippet engine
+  use('L3MON4D3/LuaSnip')
 
-    -- TODO flutter testing
-    --use({
-    --    'akinsho/flutter-tools.nvim',
-    --    requires = { 'nvim-lua/plenary.nvim' }
-    --})
+  -- Vscode-like pictograms
+  use('onsails/lspkind.nvim')
 
-    use('rafamadriz/friendly-snippets')
+  -- TODO flutter testing
+  --use({
+  --    'akinsho/flutter-tools.nvim',
+  --    requires = { 'nvim-lua/plenary.nvim' }
+  --})
+
+  use('rafamadriz/friendly-snippets')
 end)

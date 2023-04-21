@@ -9,7 +9,7 @@ local status_colors, colors = pcall(require, 'material.colors')
 if status_colors then
     material.setup({
         custom_highlights = {
-            ColorColumn = { bg = colors.main.darkyellow }
+            ColorColumn = { bg = colors.main.darkorange }
         },
         plugins = {
             -- Available plugins:
@@ -20,7 +20,7 @@ if status_colors then
             -- "indent-blankline",
             -- "lspsaga",
             -- "mini",
-            -- "neogit",
+            'neogit',
             'nvim-cmp',
             -- "nvim-navic",
             -- "nvim-tree",

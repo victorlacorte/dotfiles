@@ -47,7 +47,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.pyright.setup({})
 
 -- brew install lua-language-server
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -89,8 +89,10 @@ lspconfig.tsserver.setup({
         hostInfo = 'neovim',
         plugins = {
             -- https://github.com/styled-components/typescript-styled-plugin
-            { name = '@styled/typescript-styled-plugin',
-                location = '/opt/homebrew/lib/node_modules/@styled/typescript-styled-plugin/lib/index.js' }
+            {
+                name = '@styled/typescript-styled-plugin',
+                location = '/opt/homebrew/lib/node_modules/@styled/typescript-styled-plugin/lib/index.js'
+            }
         }
     }
 })
