@@ -3,20 +3,20 @@ local builtin = require('telescope.builtin')
 -- Falling back to find_files if git_files can't find a .git directory
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#falling-back-to-find_files-if-git_files-cant-find-a-git-directory
 local function project_files()
-    --local opts = { previewer = false, shorten_path = true }
-    local opts = {}
+  --local opts = { previewer = false, shorten_path = true }
+  local opts = {}
 
-    vim.fn.system('git rev-parse --is-inside-work-tree')
+  vim.fn.system('git rev-parse --is-inside-work-tree')
 
-    if vim.v.shell_error == 0 then
-        builtin.git_files(opts)
-    else
-        builtin.find_files(opts)
-    end
+  if vim.v.shell_error == 0 then
+    builtin.git_files(opts)
+  else
+    builtin.find_files(opts)
+  end
 end
 
 local function project_search()
-    builtin.grep_string({ search = vim.fn.input('Grep > ') })
+  builtin.grep_string({ search = vim.fn.input('Grep > ') })
 end
 
 -- Default overrides
@@ -48,6 +48,7 @@ vim.keymap.set('n', '<C-k>', '<Cmd>cprev<CR>zz')
 -- Convenience
 --vim.keymap.set('n', '<Leader>pv', ':Ex<CR>')
 vim.keymap.set('n', '<Leader>u', ':UndotreeToggle<CR>')
+vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
 --vim.keymap.set('n', '<Leader>te', ':tabedit')
 --vim.keymap.set('n', '<Leader>tn', ':tabnext<CR>')
@@ -71,4 +72,4 @@ vim.keymap.set('n', '<Leader>vd', builtin.diagnostics)
 vim.keymap.set('n', '<Leader>pv', ':Telescope file_browser path=%:p:h<CR>')
 
 -- Fugitive
-vim.keymap.set('n', '<Leader>gs', vim.cmd.Git)
+vim.keymap.set('n', '<Leader>gs', vim.cmd.Neogit)

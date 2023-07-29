@@ -1,7 +1,7 @@
 [user]
 	name = Victor Lacorte
 	email = victor.lacorte@useorigin.com
-    signingkey = 0466447711F1D8AB
+  signingkey = 0466447711F1D8AB
 [alias]
 	amendnn = !git commit --amend --no-edit --no-verify
 	fixup = !git commit --fixup=$(git log --oneline -n 30 | fzf | cut -d\" \" -f1)

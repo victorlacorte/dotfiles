@@ -31,7 +31,10 @@ packer.startup(function(use)
   use('kyazdani42/nvim-web-devicons')
 
   -- statusline
-  use('nvim-lualine/lualine.nvim')
+  use({
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  })
 
   -- undo history visualizer
   use('mbbill/undotree')
@@ -74,6 +77,7 @@ packer.startup(function(use)
   -- C port of fzf
   use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
+  -- TODO Should probably go back to using Netrw
   use {
     'nvim-telescope/telescope-file-browser.nvim',
     requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
@@ -86,8 +90,11 @@ packer.startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' },
   })
 
+  --use({
+  --  'jose-elias-alvarez/typescript.nvim'
+  --})
+
   -- source plugins
-  use('saadparwaiz1/cmp_luasnip')
   use('hrsh7th/cmp-buffer')
   use('hrsh7th/cmp-nvim-lsp')
   use('hrsh7th/cmp-path')
@@ -98,6 +105,7 @@ packer.startup(function(use)
 
   -- Snippet engine
   use('L3MON4D3/LuaSnip')
+  use('saadparwaiz1/cmp_luasnip')
 
   -- Vscode-like pictograms
   use('onsails/lspkind.nvim')
@@ -108,5 +116,5 @@ packer.startup(function(use)
   --    requires = { 'nvim-lua/plenary.nvim' }
   --})
 
-  use('rafamadriz/friendly-snippets')
+  -- use('rafamadriz/friendly-snippets')
 end)

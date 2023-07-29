@@ -26,16 +26,16 @@ local function on_attach(client, bufnr)
     return
   end
 
-  if client.supports_method('textDocument/formatting') then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ bufnr = bufnr })
-      end,
-    })
-  end
+  -- if client.supports_method('textDocument/formatting') then
+  --   vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+  --   vim.api.nvim_create_autocmd('BufWritePre', {
+  --     group = augroup,
+  --     buffer = bufnr,
+  --     callback = function()
+  --       vim.lsp.buf.format({ bufnr = bufnr })
+  --     end,
+  --   })
+  -- end
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -81,7 +81,6 @@ lspconfig.lua_ls.setup({
 })
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
--- Worth checking out: https://github.com/jose-elias-alvarez/typescript.nvim
 lspconfig.tsserver.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -92,11 +91,37 @@ lspconfig.tsserver.setup({
       -- https://github.com/styled-components/typescript-styled-plugin
       {
         name = '@styled/typescript-styled-plugin',
-        location = '/opt/homebrew/lib/node_modules/@styled/typescript-styled-plugin/lib/index.js'
+        --location = '/opt/homebrew/lib/node_modules/@styled/typescript-styled-plugin/lib/index.js'
+        location =
+        '/Users/victor/.volta/tools/image/packages/@styled/typescript-styled-plugin/lib/node_modules/@styled/typescript-styled-plugin/lib/index.js'
       }
     },
   },
 })
+
+-- https://github.com/jose-elias-alvarez/typescript.nvim
+--require('typescript').setup({
+--  disable_commands = false, -- prevent the plugin from creating Vim commands
+--  debug = false,            -- enable debug logging for commands
+--  go_to_source_definition = {
+--    fallback = true,        -- fall back to standard LSP definition on failure
+--  },
+--  server = {
+--    capabilities = capabilities,
+--    on_attach = on_attach,
+--    -- https://github.com/typescript-language-server/typescript-language-server#initializationoptions
+--    init_options = {
+--      hostInfo = 'neovim',
+--      plugins = {
+--        -- https://github.com/styled-components/typescript-styled-plugin
+--        {
+--          name = '@styled/typescript-styled-plugin',
+--          location = '/opt/homebrew/lib/node_modules/@styled/typescript-styled-plugin/lib/index.js'
+--        }
+--      },
+--    },
+--  },
+--})
 
 -- https://github.com/hrsh7th/vscode-langservers-extracted
 lspconfig.cssls.setup({
@@ -106,6 +131,7 @@ lspconfig.cssls.setup({
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
 -- https://rust-analyzer.github.io/manual.html#installation
+-- Probably just `rustup component add rust-analyzer` first
 lspconfig.rust_analyzer.setup({
   capabilities = capabilities,
   on_attach = on_attach,
